@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Entertainment Game Platform</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- LOGIN -->
+    <section id="loginPage" class="page active">
+
+        <div class="card">
+
+            <h1>🎮 Game Platform</h1>
+
+            <input
+                type="text"
+                id="loginUsername"
+                placeholder="Kullanıcı Adı">
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Şifre">
+
+            <button onclick="login()">
+                Giriş Yap
+            </button>
+
+            <button onclick="showPage('registerPage')">
+                Kayıt Ol
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- REGISTER -->
+    <section id="registerPage" class="page">
+
+        <div class="card">
+
+            <h1>Kayıt Ol</h1>
+
+            <input
+                type="text"
+                id="registerUsername"
+                placeholder="Kullanıcı Adı">
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Şifre">
+
+            <button onclick="register()">
+                Hesap Oluştur
+            </button>
+
+            <button onclick="showPage('loginPage')">
+                Geri Dön
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboardPage" class="page">
+
+        <div class="sidebar">
+
+            <h2>🎮 Menu</h2>
+
+            <button>Dashboard</button>
+
+            <button>Games</button>
+
+            <button>Admin</button>
+
+            <button onclick="logout()">
+                Çıkış Yap
+            </button>
+
+        </div>
+
+        <div class="content">
+
+            <h1>Dashboard</h1>
+
+            <p>
+                Coin:
+                <span id="balance">
+                    0
+                </span>
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
