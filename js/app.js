@@ -157,3 +157,4 @@ showPage("loginPage");
 }
 
 initializeDatabase();
+console.log("APP LOADED");
