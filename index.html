@@ -2,108 +2,73 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Entertainment Game Platform</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entertainment Platform</title>
 
 <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<div id="app">
+<div id="loginPage" class="page active">
 
-    <!-- LOGIN -->
-    <section id="loginPage" class="page active">
+<div class="card">
 
-        <div class="card">
+<h1>🎮 Entertainment Platform</h1>
 
-            <h1>🎮 Game Platform</h1>
+<input id="username" placeholder="Kullanıcı Adı">
 
-            <input
-                type="text"
-                id="loginUsername"
-                placeholder="Kullanıcı Adı">
+<input
+id="password"
+type="password"
+placeholder="Şifre">
 
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Şifre">
+<button onclick="login()">
+Giriş Yap
+</button>
 
-            <button onclick="login()">
-                Giriş Yap
-            </button>
+<button onclick="register()">
+Kayıt Ol
+</button>
 
-            <button onclick="showPage('registerPage')">
-                Kayıt Ol
-            </button>
+</div>
 
-        </div>
+</div>
 
-    </section>
+<div id="dashboardPage" class="page">
 
-    <!-- REGISTER -->
-    <section id="registerPage" class="page">
+<div class="sidebar">
 
-        <div class="card">
+<h2>🎮 Menü</h2>
 
-            <h1>Kayıt Ol</h1>
+<button>Slot 1</button>
+<button>Slot 2</button>
+<button>Slot 3</button>
 
-            <input
-                type="text"
-                id="registerUsername"
-                placeholder="Kullanıcı Adı">
+<button>Crash</button>
 
-            <input
-                type="password"
-                id="registerPassword"
-                placeholder="Şifre">
+<button>Football 1</button>
+<button>Football 2</button>
 
-            <button onclick="register()">
-                Hesap Oluştur
-            </button>
+<button>Admin</button>
 
-            <button onclick="showPage('loginPage')">
-                Geri Dön
-            </button>
+<button onclick="logout()">
+Çıkış Yap
+</button>
 
-        </div>
+</div>
 
-    </section>
+<div class="content">
 
-    <!-- DASHBOARD -->
-    <section id="dashboardPage" class="page">
+<h1>Dashboard</h1>
 
-        <div class="sidebar">
+<p>
+Coin:
+<span id="balance">
+0
+</span>
+</p>
 
-            <h2>🎮 Menu</h2>
-
-            <button>Dashboard</button>
-
-            <button>🎰 Oyunlar</button>
-
-            <button>⚙️ Admin</button>
-
-            <button onclick="logout()">
-                Çıkış Yap
-            </button>
-
-        </div>
-
-        <div class="content">
-
-            <h1>Dashboard</h1>
-
-            <p>
-                Coin:
-                <span id="balance">
-                    0
-                </span>
-            </p>
-
-        </div>
-
-    </section>
+</div>
 
 </div>
 
