@@ -2,17 +2,13 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
 background:#0f172a;
 color:white;
-height:100vh;
-overflow:hidden;
 }
-
-/* SAYFALAR */
 
 .page{
 display:none;
@@ -22,11 +18,12 @@ height:100vh;
 
 .page.active{
 display:flex;
+}
+
+#loginPage.active{
 justify-content:center;
 align-items:center;
 }
-
-/* LOGIN & REGISTER */
 
 .card{
 width:400px;
@@ -36,20 +33,12 @@ border-radius:15px;
 display:flex;
 flex-direction:column;
 gap:10px;
-box-shadow:0 0 25px rgba(0,0,0,0.3);
-}
-
-.card h1{
-text-align:center;
-margin-bottom:10px;
 }
 
 input{
 padding:12px;
 border:none;
 border-radius:10px;
-outline:none;
-font-size:14px;
 }
 
 button{
@@ -57,22 +46,6 @@ padding:12px;
 border:none;
 border-radius:10px;
 cursor:pointer;
-font-size:14px;
-font-weight:bold;
-transition:0.2s;
-}
-
-button:hover{
-opacity:0.9;
-transform:translateY(-2px);
-}
-
-/* DASHBOARD */
-
-#dashboardPage.active{
-display:flex;
-justify-content:flex-start;
-align-items:stretch;
 }
 
 .sidebar{
@@ -82,42 +55,9 @@ padding:20px;
 display:flex;
 flex-direction:column;
 gap:10px;
-border-right:1px solid #1f2937;
-}
-
-.sidebar h2{
-margin-bottom:10px;
-}
-
-.sidebar button{
-width:100%;
 }
 
 .content{
 flex:1;
 padding:30px;
-overflow:auto;
-}
-
-.content h1{
-margin-bottom:20px;
-}
-
-.content p{
-font-size:18px;
-}
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-width:8px;
-}
-
-::-webkit-scrollbar-track{
-background:#111827;
-}
-
-::-webkit-scrollbar-thumb{
-background:#374151;
-border-radius:10px;
 }
