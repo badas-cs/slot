@@ -2,73 +2,443 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Entertainment Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Entertainment Game Platform</title>
 
 <link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-<div id="loginPage" class="page active">
+<div id="app">
 
-<div class="card">
+    <!-- LOGIN -->
 
-<h1>🎮 Entertainment Platform</h1>
+    <section id="loginPage" class="page active">
 
-<input id="username" placeholder="Kullanıcı Adı">
+        <div class="auth-card">
 
-<input
-id="password"
-type="password"
-placeholder="Şifre">
+            <h1>
+                <i class="fa-solid fa-gamepad"></i>
+                Game Platform
+            </h1>
 
-<button onclick="login()">
-Giriş Yap
-</button>
+            <input
+            type="text"
+            id="loginUsername"
+            placeholder="Kullanıcı Adı">
 
-<button onclick="register()">
-Kayıt Ol
-</button>
+            <input
+            type="password"
+            id="loginPassword"
+            placeholder="Şifre">
 
-</div>
+            <button onclick="login()">
+                Giriş Yap
+            </button>
 
-</div>
+            <button onclick="showPage('registerPage')">
+                Kayıt Ol
+            </button>
 
-<div id="dashboardPage" class="page">
+        </div>
 
-<div class="sidebar">
+    </section>
 
-<h2>🎮 Menü</h2>
+    <!-- REGISTER -->
 
-<button>Slot 1</button>
-<button>Slot 2</button>
-<button>Slot 3</button>
+    <section id="registerPage" class="page">
 
-<button>Crash</button>
+        <div class="auth-card">
 
-<button>Football 1</button>
-<button>Football 2</button>
+            <h1>
+                <i class="fa-solid fa-user-plus"></i>
+                Kayıt Ol
+            </h1>
 
-<button>Admin</button>
+            <input
+            type="text"
+            id="registerUsername"
+            placeholder="Kullanıcı Adı">
 
-<button onclick="logout()">
-Çıkış Yap
-</button>
+            <input
+            type="password"
+            id="registerPassword"
+            placeholder="Şifre">
 
-</div>
+            <button onclick="register()">
+                Hesap Oluştur
+            </button>
 
-<div class="content">
+            <button onclick="showPage('loginPage')">
+                Geri Dön
+            </button>
 
-<h1>Dashboard</h1>
+        </div>
 
-<p>
-Coin:
-<span id="balance">
-0
-</span>
-</p>
+    </section>
 
-</div>
+    <!-- USER DASHBOARD -->
+
+    <section id="dashboardPage" class="page">
+
+        <div class="dashboard-layout">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="logo">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    <span>
+                        Entertainment Platform
+                    </span>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <div class="coin-box">
+
+                        <i class="fa-solid fa-coins"></i>
+
+                        <span id="balance">
+                            0
+                        </span>
+
+                    </div>
+
+                    <div class="user-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <span id="currentUsername">
+                            Kullanıcı
+                        </span>
+
+                    </div>
+
+                    <button
+                    class="logout-btn"
+                    onclick="logout()">
+
+                        Çıkış Yap
+
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- CONTENT -->
+
+            <main class="dashboard-content">
+
+                <h2>
+                    Oyunlar
+                </h2>
+
+                <div class="game-grid">
+
+                    <div class="game-card">
+
+                        <div class="game-icon">
+                            🎰
+                        </div>
+
+                        <h3>Slot 1</h3>
+
+                        <p>
+                            Klasik slot deneyimi
+                        </p>
+
+                    </div>
+
+                    <div class="game-card">
+
+                        <div class="game-icon">
+                            🎰
+                        </div>
+
+                        <h3>Slot 2</h3>
+
+                        <p>
+                            Mega ödüller
+                        </p>
+
+                    </div>
+
+                    <div class="game-card">
+
+                        <div class="game-icon">
+                            🎰
+                        </div>
+
+                        <h3>Slot 3</h3>
+
+                        <p>
+                            Premium tema
+                        </p>
+
+                    </div>
+
+                    <div class="game-card">
+
+                        <div class="game-icon">
+                            🚀
+                        </div>
+
+                        <h3>Crash</h3>
+
+                        <p>
+                            Hızlı aksiyon
+                        </p>
+
+                    </div>
+
+                    <div class="game-card">
+
+                        <div class="game-icon">
+                            ⚽
+                        </div>
+
+                        <h3>Football 1</h3>
+
+                        <p>
+                            Spor teması
+                        </p>
+
+                    </div>
+
+                    <div class="game-card">
+
+                        <div class="game-icon">
+                            ⚽
+                        </div>
+
+                        <h3>Football 2</h3>
+
+                        <p>
+                            Turnuva modu
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </section>
+
+    <!-- ADMIN PANEL -->
+
+    <section id="adminPage" class="page">
+
+        <div class="admin-layout">
+
+            <!-- SIDEBAR -->
+
+            <aside class="admin-sidebar">
+
+                <h2>
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Admin
+
+                </h2>
+
+                <button onclick="openAdminTab('usersTab')">
+                    Kullanıcılar
+                </button>
+
+                <button onclick="openAdminTab('coinTab')">
+                    Coin Yönetimi
+                </button>
+
+                <button onclick="openAdminTab('spinTab')">
+                    Çark Hakları
+                </button>
+
+                <button onclick="openAdminTab('logsTab')">
+                    Loglar
+                </button>
+
+                <button onclick="logout()">
+                    Çıkış Yap
+                </button>
+
+            </aside>
+
+            <!-- CONTENT -->
+
+            <main class="admin-content">
+
+                <!-- STATS -->
+
+                <div class="admin-stats">
+
+                    <div class="stat-card">
+
+                        <h3>
+                            Kullanıcı
+                        </h3>
+
+                        <span id="totalUsers">
+                            0
+                        </span>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <h3>
+                            Toplam Coin
+                        </h3>
+
+                        <span id="totalCoins">
+                            0
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- USERS -->
+
+                <section
+                id="usersTab"
+                class="admin-tab active-tab">
+
+                    <h2>
+                        Kullanıcı Yönetimi
+                    </h2>
+
+                    <input
+                    type="text"
+                    id="userSearch"
+                    placeholder="Kullanıcı Ara">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Kullanıcı</th>
+                                <th>Coin</th>
+                                <th>İşlem</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="userTable">
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+                <!-- COIN -->
+
+                <section
+                id="coinTab"
+                class="admin-tab">
+
+                    <h2>
+                        Coin Yönetimi
+                    </h2>
+
+                    <input
+                    type="text"
+                    id="coinUsername"
+                    placeholder="Kullanıcı Adı">
+
+                    <input
+                    type="number"
+                    id="coinAmount"
+                    placeholder="Coin">
+
+                    <button onclick="addCoin()">
+                        Coin Yükle
+                    </button>
+
+                </section>
+
+                <!-- SPIN -->
+
+                <section
+                id="spinTab"
+                class="admin-tab">
+
+                    <h2>
+                        Çark Hakkı
+                    </h2>
+
+                    <input
+                    type="text"
+                    id="spinUsername"
+                    placeholder="Kullanıcı Adı">
+
+                    <input
+                    type="number"
+                    id="spinAmount"
+                    placeholder="Hak">
+
+                    <button onclick="addSpin()">
+                        Hak Tanımla
+                    </button>
+
+                </section>
+
+                <!-- LOGS -->
+
+                <section
+                id="logsTab"
+                class="admin-tab">
+
+                    <h2>
+                        Sistem Logları
+                    </h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Kullanıcı</th>
+                                <th>İşlem</th>
+                                <th>Tarih</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="logTable">
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </section>
 
 </div>
 
