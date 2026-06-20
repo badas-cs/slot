@@ -1,30 +1,14 @@
-function showPage(pageId){
+function init() {
 
-document.querySelectorAll(".page")
-.forEach(page=>{
+if(!localStorage.getItem("users")) {
 
-page.classList.remove("active");
-
-});
-
-document
-.getElementById(pageId)
-.classList.add("active");
-
-}
-
-function initializeDatabase(){
-
-if(!localStorage.getItem("users")){
-
-const users=[
+const users = [
 
 {
-id:1,
 username:"admin",
 password:"admin123",
-role:"admin",
-balance:100000
+balance:100000,
+role:"admin"
 }
 
 ];
@@ -38,21 +22,33 @@ JSON.stringify(users)
 
 }
 
+function showPage(id){
+
+document
+.querySelectorAll(".page")
+.forEach(page=>{
+
+page.classList.remove("active");
+
+});
+
+document
+.getElementById(id)
+.classList.add("active");
+
+}
+
 function register(){
 
 const username =
-document.getElementById(
-"registerUsername"
-).value;
+document.getElementById("username").value;
 
 const password =
-document.getElementById(
-"registerPassword"
-).value;
+document.getElementById("password").value;
 
 if(!username || !password){
 
-alert("Tüm alanları doldur.");
+alert("Bilgileri doldur");
 
 return;
 
@@ -62,13 +58,9 @@ let users = JSON.parse(
 localStorage.getItem("users")
 );
 
-const exists = users.find(
-u=>u.username===username
-);
+if(users.find(u=>u.username===username)){
 
-if(exists){
-
-alert("Bu kullanıcı zaten var.");
+alert("Kullanıcı mevcut");
 
 return;
 
@@ -76,15 +68,10 @@ return;
 
 users.push({
 
-id:Date.now(),
-
 username,
-
 password,
-
-role:"user",
-
-balance:1000
+balance:1000,
+role:"user"
 
 });
 
@@ -93,23 +80,17 @@ localStorage.setItem(
 JSON.stringify(users)
 );
 
-alert("Kayıt başarılı.");
-
-showPage("loginPage");
+alert("Kayıt başarılı");
 
 }
 
 function login(){
 
 const username =
-document.getElementById(
-"loginUsername"
-).value;
+document.getElementById("username").value;
 
 const password =
-document.getElementById(
-"loginPassword"
-).value;
+document.getElementById("password").value;
 
 let users = JSON.parse(
 localStorage.getItem("users")
@@ -126,7 +107,7 @@ u.password===password
 
 if(!user){
 
-alert("Hatalı giriş.");
+alert("Hatalı giriş");
 
 return;
 
@@ -139,8 +120,7 @@ JSON.stringify(user)
 
 document.getElementById(
 "balance"
-).innerText =
-user.balance;
+).innerText = user.balance;
 
 showPage("dashboardPage");
 
@@ -156,5 +136,4 @@ showPage("loginPage");
 
 }
 
-initializeDatabase();
-console.log("APP LOADED");
+init();
